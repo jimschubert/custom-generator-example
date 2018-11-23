@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "us.jimschubert.examples:html-generator:1.0-SNAPSHOT"
+        classpath "org.openapitools:openapi-generator-gradle-plugin:3.3.3"
+    }
+}
+
+apply plugin: 'org.openapi.generator'
+
+openApiValidate {
+    inputSpec = "$rootDir/petstore-v3.0-invalid.yaml".toString()
+}
+
+task buildCustomHtml2(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask){
+    generatorName = "custom-html2"
+    inputSpec = "$rootDir/petstore-v3.0.yaml".toString()
+    additionalProperties = [
+            appName: "My Custom HTML2 Generator",
+            googleAnalytics: "12345-6"
+    ]
+    outputDir = "$buildDir/custom-html".toString()
+}
+
+task buildOriginalHtml2(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask){
+    generatorName = "html2"
+    inputSpec = "$rootDir/petstore-v3.0.yaml".toString()
+    additionalProperties = [
+            appName: "Original HTML2 Generator",
+            googleAnalytics: "12345-6"
+    ]
+    outputDir = "$buildDir/html".toString()
+}
