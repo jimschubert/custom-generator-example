@@ -11,7 +11,7 @@ To build the custom generator, run the following:
 
 ```
 cd html-generator
-gradle assemble install
+./gradlew assemble install
 ```
 
 This will locally install the artifact `us.jimschubert.examples:html-generator:1.0-SNAPSHOT`.
@@ -23,7 +23,7 @@ There is a build file under `consumer` with a valid and invalid spec file. Chang
 To build the custom and built-in HTML2 generators against the valid spec, run the following:
 
 ```
-gradle buildCustomHtml2 && gradle buildOriginalHtml2
+./gradlew buildCustomHtml2 && gradle buildOriginalHtml
 ```
 
 Outputs are under `build/custom-html/` and `build/html`.
