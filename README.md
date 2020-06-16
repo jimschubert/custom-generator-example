@@ -23,7 +23,7 @@ There is a build file under `consumer` with a valid and invalid spec file. Chang
 To build the custom and built-in HTML2 generators against the valid spec, run the following:
 
 ```
-./gradlew buildCustomHtml2 && gradle buildOriginalHtml
+./gradlew buildCustomHtml2 && gradle buildOriginalHtml2
 ```
 
 Outputs are under `build/custom-html/` and `build/html`.
